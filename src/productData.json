@@ -1,0 +1,52 @@
+{
+    "product": [
+        {
+            "_id": "dressOne",
+            "title": "banh mi enamel pin pok pok selvag",
+            "image": "/images/dressOne.jpg",
+            "description": "about Dress One",
+            "price": 25,
+            "availableSizes": ["XL", "XXL"]
+        },
+        {
+            "_id": "dressTwo",
+            "title": "Disrupt master cleanse freegan migas",
+            "image": "/images/dressTwo.jpg",
+            "description": "about Dress Two",
+            "price": 35,
+            "availableSizes": ["XL", "XXL", "XXXL", "L"]
+        },
+        {
+            "_id": "dressThree",
+            "title": "VHS taxidermy lumbersexual fanny pack semiotics",
+            "image": "/images/dressThree.jpg",
+            "description": "about Dress Three",
+            "price": 19,
+            "availableSizes": ["XL", "L", "MD"]
+        },
+        {
+            "_id": "dressFour",
+            "title": "pug intelligentsia church-key paleo",
+            "image": "/images/dressFour.jpg",
+            "description": "about Dress Four",
+            "price": 41,
+            "availableSizes": ["SM", "MD", "L"]
+        },
+        {
+            "_id": "dressFive",
+            "title": "Kombucha vaporware pickled kitsch marfa",
+            "image": "/images/dressFive.jpg",
+            "description": "about Dress Five",
+            "price": 31,
+            "availableSizes": ["SM", "L", "XXL"]
+        },
+        {
+            "_id": "dressSix",
+            "title": "I'm baby pabst chia flannel VHS",
+            "image": "/images/dressSix.jpg",
+            "description": "about Dress Six",
+            "price": 29,
+            "availableSizes": ["SM", "XXXL"]
+        }
+    ]
+}
