@@ -1,4 +1,4 @@
-// feature-one
+// feature-1
 import "./App.css";
 
 function App() {
