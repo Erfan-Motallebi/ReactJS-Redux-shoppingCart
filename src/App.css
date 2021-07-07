@@ -28,6 +28,11 @@ body {
   --btn-bg: #000;
 }
 
+button,
+select {
+  outline-style: none;
+}
+
 header {
   background: var(--header-bg);
   color: var(--header-font-color);
@@ -114,5 +119,21 @@ footer {
 }
 
 /*
-*  Product Section         ---- End -----
+* -------END--------
+*/
+
+/*
+*   Filter Section
+*/
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 0.1rem solid #000;
+  width: 80%;
+  margin: 15px auto;
+}
+/*
+*  -------END--------
 */

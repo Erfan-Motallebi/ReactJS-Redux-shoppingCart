@@ -1,7 +1,7 @@
 {
     "product": [
         {
-            "_id": "dressOne",
+            "_id": 1,
             "title": "banh mi enamel pin pok pok selvag",
             "image": "/images/dressOne.jpg",
             "description": "about Dress One",
@@ -9,7 +9,7 @@
             "availableSizes": ["XL", "XXL"]
         },
         {
-            "_id": "dressTwo",
+            "_id": 2,
             "title": "Disrupt master cleanse freegan migas",
             "image": "/images/dressTwo.jpg",
             "description": "about Dress Two",
@@ -17,7 +17,7 @@
             "availableSizes": ["XL", "XXL", "XXXL", "L"]
         },
         {
-            "_id": "dressThree",
+            "_id": 3,
             "title": "VHS taxidermy lumbersexual fanny pack semiotics",
             "image": "/images/dressThree.jpg",
             "description": "about Dress Three",
@@ -25,7 +25,7 @@
             "availableSizes": ["XL", "L", "MD"]
         },
         {
-            "_id": "dressFour",
+            "_id": 4,
             "title": "pug intelligentsia church-key paleo",
             "image": "/images/dressFour.jpg",
             "description": "about Dress Four",
@@ -33,7 +33,7 @@
             "availableSizes": ["SM", "MD", "L"]
         },
         {
-            "_id": "dressFive",
+            "_id": 5,
             "title": "Kombucha vaporware pickled kitsch marfa",
             "image": "/images/dressFive.jpg",
             "description": "about Dress Five",
@@ -41,7 +41,7 @@
             "availableSizes": ["SM", "L", "XXL"]
         },
         {
-            "_id": "dressSix",
+            "_id": 6,
             "title": "I'm baby pabst chia flannel VHS",
             "image": "/images/dressSix.jpg",
             "description": "about Dress Six",
