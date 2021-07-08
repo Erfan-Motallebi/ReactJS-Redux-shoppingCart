@@ -5,11 +5,13 @@ import "./App.css";
 import productData from "./productData.json";
 import Products from "./components/Products";
 import Filter from "./components/Filter";
+import Cart from "./components/Cart";
 class App extends Component {
   constructor() {
     super();
     this.state = {
       products: productData.product,
+      cartItems: [],
       size: "",
       sort: "",
     };
@@ -49,6 +51,27 @@ class App extends Component {
     });
   };
 
+  addToCart = (product) => {
+    const newCartItem = this.state.cartItems.slice();
+    let alreadyExistence = false;
+    newCartItem.forEach((item) => {
+      if (item._id === product._id) {
+        item.count++;
+        alreadyExistence = true;
+      }
+    });
+    if (!alreadyExistence) {
+      newCartItem.push({ ...product, count: 1 });
+    }
+    this.setState({ cartItems: newCartItem });
+  };
+
+  removeCart = (cartId) => {
+    this.setState((state) => ({
+      cartItems: state.cartItems.filter((product) => product._id !== cartId),
+    }));
+  };
+
   render() {
     return (
       <div className="grid-container">
@@ -65,9 +88,17 @@ class App extends Component {
                 productFilter={this.productFilter}
                 productOrder={this.productOrder}
               />
-              <Products products={this.state.products} />
+              <Products
+                products={this.state.products}
+                addToCart={this.addToCart}
+              />
             </div>
-            <div className="sideBar">SideBars</div>
+            <div className="sideBar">
+              <Cart
+                cartItems={this.state.cartItems}
+                removeCart={this.removeCart}
+              />
+            </div>
           </div>
         </main>
         <footer>
