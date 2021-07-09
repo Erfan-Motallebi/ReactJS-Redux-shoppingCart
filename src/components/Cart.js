@@ -2,6 +2,34 @@ import React, { Component } from "react";
 import currencyFormat from "../utils";
 
 export default class Cart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showProceedBtn: false,
+      name: "",
+      email: "",
+      address: "",
+    };
+  }
+
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  handleSubmitOrder = (e) => {
+    e.preventDefault();
+    const order = {
+      name: this.state.name,
+      email: this.state.email,
+      address: this.state.address,
+      cartItems: this.props.cartItems,
+    };
+    this.props.createOrder(order);
+  };
+
   render() {
     const { cartItems } = this.props;
     return (
@@ -27,7 +55,7 @@ export default class Cart extends Component {
                       {item.count} x {currencyFormat(item.price)}
                       <button
                         className="cart-btn"
-                        onClick={() => this.props.removeCart(item._id)}
+                        onClick={() => this.props.removeCart(item)}
                       >
                         Remove
                       </button>
@@ -56,8 +84,55 @@ export default class Cart extends Component {
             </div>
             <div className="divider"></div>
             <div>
-              <button className="btn-proceed"> Proceed</button>
+              <button
+                onClick={() => this.setState({ showProceedBtn: true })}
+                className="btn-proceed"
+              >
+                {" "}
+                Proceed
+              </button>
             </div>
+          </div>
+        )}
+        {this.state.showProceedBtn && (
+          <div className="form">
+            <form onSubmit={this.handleSubmitOrder}>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Your name"
+                onChange={this.handleChange}
+                value={this.state.name}
+                required
+              />{" "}
+              <br />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Your email"
+                onChange={this.handleChange}
+                value={this.state.email}
+                required
+              />{" "}
+              <br />
+              <input
+                type="text"
+                name="address"
+                id="address"
+                placeholder="Your address"
+                onChange={this.handleChange}
+                value={this.state.address}
+                required
+              />{" "}
+              <br />
+              <br />
+              <br />
+              <button className="btn-proceed left" type="submit">
+                CheckOut
+              </button>
+            </form>
           </div>
         )}
       </div>
