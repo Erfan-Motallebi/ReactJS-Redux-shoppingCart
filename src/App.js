@@ -11,7 +11,9 @@ class App extends Component {
     super();
     this.state = {
       products: productData.product,
-      cartItems: [],
+      cartItems: localStorage.getItem("cartItems")
+        ? JSON.parse(localStorage.getItem("cartItems"))
+        : [],
       size: "",
       sort: "",
     };
@@ -64,12 +66,25 @@ class App extends Component {
       newCartItem.push({ ...product, count: 1 });
     }
     this.setState({ cartItems: newCartItem });
+    localStorage.setItem("cartItems", JSON.stringify(newCartItem));
   };
 
-  removeCart = (cartId) => {
-    this.setState((state) => ({
-      cartItems: state.cartItems.filter((product) => product._id !== cartId),
-    }));
+  removeCart = (item) => {
+    this.setState({
+      cartItems: this.state.cartItems.filter(
+        (product) => product._id !== item._id
+      ),
+    });
+    localStorage.setItem(
+      "cartItems",
+      JSON.stringify(
+        this.state.cartItems.filter((product) => product._id !== item._id)
+      )
+    );
+  };
+
+  createOrder = (order) => {
+    alert("this is your name: " + order.name);
   };
 
   render() {
@@ -97,6 +112,7 @@ class App extends Component {
               <Cart
                 removeCart={this.removeCart}
                 cartItems={this.state.cartItems}
+                createOrder={this.createOrder}
               />
             </div>
           </div>
