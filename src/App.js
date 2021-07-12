@@ -6,6 +6,8 @@ import productData from "./productData.json";
 import Products from "./components/Products";
 import Filter from "./components/Filter";
 import Cart from "./components/Cart";
+import Flash from "react-reveal/Flash";
+
 class App extends Component {
   constructor() {
     super();
@@ -67,6 +69,7 @@ class App extends Component {
     }
     this.setState({ cartItems: newCartItem });
     localStorage.setItem("cartItems", JSON.stringify(newCartItem));
+    console.log(localStorage.getItem("cartItems"));
   };
 
   removeCart = (item) => {
@@ -91,7 +94,9 @@ class App extends Component {
     return (
       <div className="grid-container">
         <header>
-          <h3>React Shopping Cart</h3>
+          <Flash duration={2000} delay={2000} count={2}>
+            <h3>React Shopping Cart</h3>
+          </Flash>
         </header>
         <main>
           <div className="content">

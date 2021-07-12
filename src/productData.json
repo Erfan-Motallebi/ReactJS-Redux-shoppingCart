@@ -4,7 +4,7 @@
             "_id": 1,
             "title": "banh mi enamel pin pok pok selvag",
             "image": "/images/dressOne.jpg",
-            "description": "about Dress One",
+            "description": "I'm baby keytar succulents fixie williamsburg fanny pack polaroid cold-pressed. Tofu humblebrag migas, disrupt offal lomo austin portland af mixtape sartorial before they sold out wolf DIY. Ugh waistcoat celiac hell of offal pork belly whatever, copper mug wolf man braid. Brooklyn next level gochujang tilde everyday carry seitan.",
             "price": 25,
             "availableSizes": ["XL", "XXL"]
         },
@@ -12,7 +12,7 @@
             "_id": 2,
             "title": "Disrupt master cleanse freegan migas",
             "image": "/images/dressTwo.jpg",
-            "description": "about Dress Two",
+            "description": "Jianbing polaroid freegan, skateboard wolf craft beer fanny pack lo-fi before they sold out small batch trust fund banjo wayfarers chambray fam. Thundercats man bun forage cornhole offal. Vegan cliche polaroid, health goth edison bulb af locavore four loko irony shabby chic butcher aesthetic. Wayfarers keffiyeh tofu, church-key flannel vegan meggings brunch. ",
             "price": 35,
             "availableSizes": ["XL", "XXL", "XXXL", "L"]
         },
@@ -20,7 +20,7 @@
             "_id": 3,
             "title": "VHS taxidermy lumbersexual fanny pack semiotics",
             "image": "/images/dressThree.jpg",
-            "description": "about Dress Three",
+            "description": "Roof party pop-up prism small batch portland raw denim forage. Roof party keytar enamel pin plaid everyday carry, jean shorts pinterest umami semiotics tousled cloud bread stumptown photo booth. Polaroid farm-to-table freegan, lumbersexual selvage leggings brunch. Hella vape deep v twee ramps plaid before they sold out cronut. ",
             "price": 19,
             "availableSizes": ["XL", "L", "MD"]
         },
@@ -28,7 +28,7 @@
             "_id": 4,
             "title": "pug intelligentsia church-key paleo",
             "image": "/images/dressFour.jpg",
-            "description": "about Dress Four",
+            "description": "Street art salvia tattooed before they sold out, ennui irony portland ugh pork belly. Pork belly leggings vegan authentic, chia keytar pinterest pop-up literally put a bird on it mixtape green juice. Fashion axe pour-over pickled seitan mustache food truck freegan art party affogato artisan vaporware. Photo booth tattooed activated charcoal craft beer cloud bread jianbing, +1 direct trade cray occupy banjo hella franzen fixie normcore.",
             "price": 41,
             "availableSizes": ["SM", "MD", "L"]
         },
@@ -36,7 +36,7 @@
             "_id": 5,
             "title": "Kombucha vaporware pickled kitsch marfa",
             "image": "/images/dressFive.jpg",
-            "description": "about Dress Five",
+            "description": "Hell of copper mug mixtape mlkshk. Distillery tilde cred sartorial quinoa meditation pug. Banjo williamsburg iceland selfies snackwave tote bag hoodie portland vaporware. Chicharrones meggings vexillologist authentic. Vape swag echo park thundercats. Pour-over asymmetrical vegan cray, woke sustainable edison bulb kombucha fingerstache. Fashion axe iceland forage narwhal actually kinfolk kickstarter, ",
             "price": 31,
             "availableSizes": ["SM", "L", "XXL"]
         },
@@ -44,7 +44,7 @@
             "_id": 6,
             "title": "I'm baby pabst chia flannel VHS",
             "image": "/images/dressSix.jpg",
-            "description": "about Dress Six",
+            "description": "I'm baby kickstarter slow-carb chia godard locavore sriracha blue bottle austin copper mug pok pok irony. Jean shorts sartorial disrupt single-origin coffee cloud bread skateboard chillwave aesthetic edison bulb small batch adaptogen hammock direct trade DIY. Hot chicken edison bulb taxidermy, kombucha aesthetic green juice man bun pinterest enamel pin snackwave normcore kogi hexagon meggings gastropub. ",
             "price": 29,
             "availableSizes": ["SM", "XXXL"]
         }
