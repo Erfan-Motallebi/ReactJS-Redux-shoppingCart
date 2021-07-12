@@ -228,3 +228,48 @@ input:focus {
 /*
 *  -------END--------
 */
+
+/*
+*  Product Modal Section
+*/
+
+.product-details {
+  display: flex;
+  gap: 20px;
+}
+.close-modal {
+  padding: 10px 15px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: unset;
+  background: transparent;
+  color: hsl(0, 99%, 29%);
+  font-size: 2rem;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.details {
+  padding: 5px 12px;
+  line-height: 1.5;
+}
+.product-description {
+  padding: 5px 20px;
+  margin: 50px 0 50px 0;
+}
+.btn-size {
+  border: unset;
+  padding: 5px 15px;
+}
+
+.btn-modal {
+  margin-top: 70px;
+  gap: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+/*
+*  -------END--------
+*/

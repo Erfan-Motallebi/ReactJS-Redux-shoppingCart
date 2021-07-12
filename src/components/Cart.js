@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import currencyFormat from "../utils";
+import Fade from "react-reveal/Fade";
 
 export default class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showProceedBtn: false,
+      removeState: false,
       name: "",
       email: "",
       address: "",
@@ -42,29 +44,36 @@ export default class Cart extends Component {
           )}
         </div>
         <div className="main-cart">
-          <ul className="cart-item">
-            {cartItems.map((item) => {
-              return (
-                <li key={item._id}>
-                  <div>
-                    <img src={item.image} alt={item.title} />
-                  </div>
-                  <div>
-                    <div>{item.title}</div>
-                    <div className="toRight">
-                      {item.count} x {currencyFormat(item.price)}
-                      <button
-                        className="cart-btn"
-                        onClick={() => this.props.removeCart(item)}
-                      >
-                        Remove
-                      </button>
+          <Fade left cascade>
+            <ul className="cart-item">
+              {cartItems.map((item) => {
+                return (
+                  <li key={item._id}>
+                    <div>
+                      <img src={item.image} alt={item.title} />
                     </div>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+                    <div>
+                      <div>{item.title}</div>
+                      <div className="toRight">
+                        $ {item.count} x {item.price}
+                        <button
+                          className="cart-btn"
+                          onClick={() => {
+                            this.props.removeCart(item);
+                            this.setState({
+                              removeState: true,
+                            });
+                          }}
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </Fade>
         </div>
         {cartItems.length === 0 ? (
           false
@@ -85,7 +94,9 @@ export default class Cart extends Component {
             <div className="divider"></div>
             <div>
               <button
-                onClick={() => this.setState({ showProceedBtn: true })}
+                onClick={() =>
+                  this.setState({ showProceedBtn: !this.state.showProceedBtn })
+                }
                 className="btn-proceed"
               >
                 {" "}
@@ -95,45 +106,47 @@ export default class Cart extends Component {
           </div>
         )}
         {this.state.showProceedBtn && (
-          <div className="form">
-            <form onSubmit={this.handleSubmitOrder}>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Your name"
-                onChange={this.handleChange}
-                value={this.state.name}
-                required
-              />{" "}
-              <br />
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Your email"
-                onChange={this.handleChange}
-                value={this.state.email}
-                required
-              />{" "}
-              <br />
-              <input
-                type="text"
-                name="address"
-                id="address"
-                placeholder="Your address"
-                onChange={this.handleChange}
-                value={this.state.address}
-                required
-              />{" "}
-              <br />
-              <br />
-              <br />
-              <button className="btn-proceed left" type="submit">
-                CheckOut
-              </button>
-            </form>
-          </div>
+          <Fade cascade right>
+            <div className="form">
+              <form onSubmit={this.handleSubmitOrder}>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Your name"
+                  onChange={this.handleChange}
+                  value={this.state.name}
+                  required
+                />{" "}
+                <br />
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Your email"
+                  onChange={this.handleChange}
+                  value={this.state.email}
+                  required
+                />{" "}
+                <br />
+                <input
+                  type="text"
+                  name="address"
+                  id="address"
+                  placeholder="Your address"
+                  onChange={this.handleChange}
+                  value={this.state.address}
+                  required
+                />{" "}
+                <br />
+                <br />
+                <br />
+                <button className="btn-proceed left" type="submit">
+                  CheckOut
+                </button>
+              </form>
+            </div>
+          </Fade>
         )}
       </div>
     );
