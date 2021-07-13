@@ -21,38 +21,39 @@ const deleteProduct = async (req, res, next) => {
   });
 };
 
-const filterProductsByPrice = async (req, res, next) => {
+const filterProductsByPrice = (req, res, next) => {
   if (Number.isNaN(parseInt(req.params.id))) return next("route");
-  const filteredProducts = await ProductModel.find({
-    price: { $gt: req.params.id },
-  });
-  if (filteredProducts) {
-    res.status(200).json({
-      "Filter Item": "price",
-      success: true,
-      filteredProducts,
-    });
-  }
+  ProductModel.find(
+    {
+      price: { $gt: req.params.id },
+    },
+    (err, result) => {
+      if (!err) {
+        res.status(200).json({
+          "Filter Item": "price",
+          success: true,
+          filteredProducts: result,
+        });
+      } else {
+        res.status(404).json({ error: err });
+      }
+    }
+  );
 };
-
-const filterProductsBySize = async (req, res, next) => {
-  const filteredProducts = await ProductModel.find({
+const filterProductsBySize = (req, res, next) => {
+  const filteredProducts = ProductModel.find({
     availableSizes: { $eq: req.params.id },
   });
   if (filteredProducts) {
-    res.status(200).json({
-      success: true,
-      "Filter Method": "availableSize",
-      filteredProducts,
-    });
-  } else {
-    res.status(404).json({
-      success: false,
-      filteredProducts: [],
+    filteredProducts.then((result) => {
+      res.status(200).json({
+        success: true,
+        "Filter Method": "availableSize",
+        filteredProducts: result,
+      });
     });
   }
 };
-
 module.exports = {
   postProduct,
   getProduct,
