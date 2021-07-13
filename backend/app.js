@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const app = express();
 
@@ -35,6 +36,20 @@ app.use(express.json());
  * ! TODO: middleWares
  */
 app.use(morgan("dev"));
+//  ! Old method to pass through the cors filters
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.setHeader("Access-Control-Allow-Methods", "POST, PUT, DELETE, GET");
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+//   res.setHeader("Access-Control-Allow-Credentials", true);
+//   next();
+// });
+app.use(
+  cors({
+    methods: "POST,GET",
+    origin: "http://localhost:3000",
+  })
+);
 
 /**
  * ! Routes

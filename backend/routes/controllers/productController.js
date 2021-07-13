@@ -1,5 +1,6 @@
 // ! model
 const ProductModel = require("../../database/models/product");
+const OrderedProductModel = require("../../database/models/orderedProduct");
 
 const getProduct = async (req, res, next) => {
   const Product = await ProductModel.find({});
@@ -7,9 +8,9 @@ const getProduct = async (req, res, next) => {
 };
 
 const postProduct = async (req, res, next) => {
-  const Product = new ProductModel(req.body);
-  const savedProduct = await Product.save();
-  res.status(200).send(savedProduct);
+  const OrderedProduct = new OrderedProductModel(req.body);
+  const OrderedProductSaved = await OrderedProduct.save();
+  res.status(200).send(OrderedProductSaved);
 };
 
 const deleteProduct = async (req, res, next) => {

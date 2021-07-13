@@ -11,6 +11,7 @@ export default class Cart extends Component {
       name: "",
       email: "",
       address: "",
+      total: 0,
     };
   }
 
@@ -28,6 +29,7 @@ export default class Cart extends Component {
       email: this.state.email,
       address: this.state.address,
       cartItems: this.props.cartItems,
+      total: this.state.total,
     };
     this.props.createOrder(order);
   };
@@ -94,9 +96,18 @@ export default class Cart extends Component {
             <div className="divider"></div>
             <div>
               <button
-                onClick={() =>
-                  this.setState({ showProceedBtn: !this.state.showProceedBtn })
-                }
+                onClick={() => {
+                  this.setState({
+                    showProceedBtn: !this.state.showProceedBtn,
+                    total: currencyFormat(
+                      cartItems.reduce(
+                        (totalVal, currentVal) =>
+                          totalVal + currentVal.price * currentVal.count,
+                        0
+                      )
+                    ),
+                  });
+                }}
                 className="btn-proceed"
               >
                 {" "}

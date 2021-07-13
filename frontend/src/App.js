@@ -2,17 +2,19 @@
 import React, { Component } from "react";
 // feature-1
 import "./App.css";
-import productData from "./productData.json";
+// import productData from "./productData.json";
 import Products from "./components/Products";
 import Filter from "./components/Filter";
 import Cart from "./components/Cart";
 import Flash from "react-reveal/Flash";
+import productFetch from "./components/server/productFetch";
+import registerProduct from "./components/server/registerProduct";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      products: productData.product,
+      products: [],
       cartItems: localStorage.getItem("cartItems")
         ? JSON.parse(localStorage.getItem("cartItems"))
         : [],
@@ -21,16 +23,30 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    productFetch()
+      .then((result) =>
+        this.setState({
+          products: result,
+        })
+      )
+      .catch((err) => {
+        console.log({
+          error: err,
+        });
+      });
+  }
+
   productFilter = (event) => {
     if (event.target.value === "") {
       this.setState({
         size: event.target.value,
-        products: productData.product,
+        products: this.state.products,
       });
     } else {
       this.setState({
         size: event.target.value,
-        products: productData.product.filter(
+        products: this.state.products.filter(
           (projekt) =>
             projekt.availableSizes.lastIndexOf(event.target.value) >= 0
         ),
@@ -87,7 +103,7 @@ class App extends Component {
   };
 
   createOrder = (order) => {
-    alert("this is your name: " + order.name);
+    registerProduct(order);
   };
 
   render() {
