@@ -64,7 +64,7 @@ export default class Products extends Component {
                     </a>
                     <div className="product-price">
                       <div>
-                        <h3>$ {product.price}</h3>
+                        <h3>{currencyFormat(product.price)}</h3>
                       </div>
                       <button
                         onClick={() => this.props.addToCart(product)}
@@ -122,7 +122,7 @@ export default class Products extends Component {
                     <strong>
                       <Flash delay={2000} duration={2000} count={2}>
                         <div style={{ marginTop: "7px", fontSize: "2rem" }}>
-                          $ {currencyFormat(this.state.product.price)}
+                          {currencyFormat(this.state.product.price)}
                         </div>
                       </Flash>
                     </strong>
